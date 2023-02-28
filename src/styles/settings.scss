@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"),
+  url("../font/Poppins.ttf") format("truetype");
+  font-weight: bold;
+}
+
+:root {
+  --header-height: 3rem;
+
+  /* Colors */
+  --hue: 0;
+  --saturation: 0%;
+  --title-color: hsl(var(--hue), var(--saturation), 20%);
+  --title-color-dark: hsl(var(--hue), var(--saturation), 0%);
+  --text-color: hsl(var(--hue), var(--saturation), 46%);
+  --body-color: hsl(var(--hue), var(--saturation), 98%);
+  --container-color: #fff;
+
+
+  /* font */
+  --body-font: 'Poppins', sans-serif;
+
+  /* 1rem = 16px */
+  --big-font-size: 3.5rem;
+  --h1-font-size: 2.25rem;
+  --h2-font-size: 1.5rem;
+  --h3-font-size: 1.25rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.875rem;
+
+}
+
+.container {
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--title-color);
+  color: var(--container-color);
+  padding: 1.25rem 2rem;
+  border-radius: 1rem;
+  font-weight: 500;
+}
+
+.button:hover {
+  background-color: var(--title-color-dark);
+}
+
+.button__icon {
+  margin-left: .5rem;
+}
+
+.button__flex {
+  display: inline-flex;
+  align-items: center;
+}
