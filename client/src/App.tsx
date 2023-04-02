@@ -1,5 +1,5 @@
 import './styles/main.scss'
-import { Header } from './components'
+import { Footer, Header } from './components'
 
 function App() {
 
@@ -8,6 +8,12 @@ function App() {
       <header>
         <Header />
       </header>
+      <main>
+
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   )
 }

@@ -17,35 +17,35 @@ export default function Header() {
             <li className="nav__item">
               <a href="#" className="nav__link">
                 <i className="uil uil-estate nav__icon"></i>
-                Home
+                Главная
               </a>
             </li>
 
             <li className="nav__item">
               <a href="#" className="nav__link">
                 <i className="uil uil-user nav__icon"></i>
-                Films
-              </a>
-            </li>
-
-            <li className="nav__item">
-              <a href="#" className="nav__link">
-                <i className="uil uil-file-alt nav__icon"></i>
-                Cartoons
-              </a>
-            </li>
-
-            <li className="nav__item">
-              <a href="#" className="nav__link">
-                <i className="uil uil-scenery nav__icon"></i>
-                Serials
+                Прокат
               </a>
             </li>
 
             <li className="nav__item">
               <a href="#" className="nav__link">
                 <i className="uil uil-message nav__icon"></i>
-                Account
+                Сеансы
+              </a>
+            </li>
+
+            <li className="nav__item">
+              <a href="#" className="nav__link">
+                <i className="uil uil-message nav__icon"></i>
+                Мои билеты
+              </a>
+            </li>
+
+            <li className="nav__item">
+              <a href="#" className="nav__link">
+                <i className="uil uil-message nav__icon"></i>
+                Профиль
               </a>
             </li>
           </ul>

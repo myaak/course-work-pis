@@ -10,6 +10,19 @@ html {
   scroll-behavior: smooth;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+main {
+}
+
+footer {
+  width: 100vw;
+}
+
 body,
 button,
 input,
