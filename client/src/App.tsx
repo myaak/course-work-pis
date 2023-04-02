@@ -1,20 +1,24 @@
 import './styles/main.scss'
-import { Footer, Header } from './components'
+import { AppRouter, Footer, Header } from './components'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
 
   return (
-    <div className="App">
-      <header>
-        <Header />
-      </header>
-      <main>
+    <BrowserRouter>    
+      <div className="App">
+        <header>
+          <Header />
+        </header>
+        <main>
+          <AppRouter />
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
+    </BrowserRouter>
 
-      </main>
-      <footer>
-        <Footer />
-      </footer>
-    </div>
   )
 }
 

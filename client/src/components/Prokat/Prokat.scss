@@ -1,0 +1,49 @@
+.prokat__container {
+  display: flex;
+  flex-direction: column;
+  min-height: 700px;
+  padding: 1rem;
+}
+
+.prokat__films-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  overflow-y: scroll;
+  height: 100%;
+  flex-grow: 2;
+}
+
+.prokat-film-item__container {
+  font-weight: 700;
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 10px;
+  color: var(--title-color);
+}
+
+.prokat-film-item__description {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: .25rem;
+}
+
+.prokat-film-item__genres {
+  display: flex;
+  gap: .3rem;
+  font-size: 0.875rem;
+}
+
+.prokat-film-item__name {
+  font-size: 1.5rem;
+}
+
+.genre-item__container {
+  padding: 0 .2rem;
+  border: 1px solid #777;
+  border-radius: 10px;
+}
