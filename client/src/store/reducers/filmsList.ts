@@ -6,10 +6,9 @@ interface FilmsList {
 }
 
 export interface FilmObject {
-    filmName: string
-    filmGenres: Array<string>
-    filmSeanes: Array<string>
-
+  filmName: string
+  filmGenres: Array<string>
+  filmSeanes: Array<string>
 }
 
 const filmItem = {
