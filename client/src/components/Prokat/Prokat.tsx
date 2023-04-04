@@ -1,20 +1,15 @@
 import { useState } from 'react' 
 import ProkatFilmItem from "./ProkatFilmItem";
 import './Prokat.scss'
+import { useAppSelector } from '../../app/hooks';
 
 
   const filmItem = {
-    filmName: 'Крутые крысы',
-    filmGenres: ['Ekshn', 'Fantastica'],
-    filmSeanes: ['Today 11.30']
   }
 
 export default function Prokat() {
 
-  const [films, setFilms] = useState<any>([
-    filmItem, filmItem, filmItem
-  ])
-
+  const films = useAppSelector(state => state.filmsList.films)
 
   return (
       <div className="prokat__container">
