@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './header.scss'
 
 export default function Header() {
@@ -15,38 +16,38 @@ export default function Header() {
           "nav__menu"}>
           <ul className="nav__list grid">
             <li className="nav__item">
-              <a href="#" className="nav__link">
+              <Link to="/" className="nav__link">
                 <i className="uil uil-estate nav__icon"></i>
                 Главная
-              </a>
+              </Link>
             </li>
 
             <li className="nav__item">
-              <a href="#" className="nav__link">
+              <Link to="/prokat" className="nav__link">
                 <i className="uil uil-user nav__icon"></i>
                 Прокат
-              </a>
+              </Link>
             </li>
 
             <li className="nav__item">
-              <a href="#" className="nav__link">
+              <Link to="/seanses" className="nav__link">
                 <i className="uil uil-message nav__icon"></i>
                 Сеансы
-              </a>
+              </Link>
             </li>
 
             <li className="nav__item">
-              <a href="#" className="nav__link">
+              <Link to="/mytickets" className="nav__link">
                 <i className="uil uil-message nav__icon"></i>
                 Мои билеты
-              </a>
+              </Link>
             </li>
 
             <li className="nav__item">
-              <a href="#" className="nav__link">
+              <Link to="/profile" className="nav__link">
                 <i className="uil uil-message nav__icon"></i>
                 Профиль
-              </a>
+              </Link>
             </li>
           </ul>
 

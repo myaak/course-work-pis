@@ -1,24 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from '@reduxjs/toolkit'
+import { IFilm } from "../../models/IFilm";
 
 interface FilmsList {
-  films: Array<FilmObject>
-}
-
-export interface FilmObject {
-  filmName: string
-  filmGenres: Array<string>
-  filmSeanes: Array<string>
+  films: IFilm[]
 }
 
 const filmItem = {
   filmName: 'Крутые крысы',
   filmGenres: ['Ekshn', 'Fantastica'],
   filmSeanes: ['Today 11.30']
-} satisfies FilmObject
+} satisfies IFilm
 
 const initialState: FilmsList = {
-  films: [filmItem]
+  films: [filmItem, filmItem,
+filmItem, filmItem,filmItem, filmItem,filmItem, filmItem,filmItem, filmItem,filmItem, filmItem,filmItem, filmItem]
 }
 
 export const filmsListSlice = createSlice({
