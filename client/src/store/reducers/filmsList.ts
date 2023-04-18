@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { IFilm } from "../../models/IFilm";
+import { fetchFilms } from "../ActionCreators/FilmsAction";
 
 interface FilmsList {
   films: IFilm[]
+  isLoading: boolean
+  error: string | null
 }
 
 const filmItem = {
@@ -14,7 +17,10 @@ const filmItem = {
 
 const initialState: FilmsList = {
   films: [filmItem, filmItem,
-filmItem, filmItem,filmItem, filmItem,filmItem, filmItem,filmItem, filmItem,filmItem, filmItem,filmItem, filmItem]
+    filmItem, filmItem, filmItem, filmItem, filmItem, filmItem, filmItem, filmItem, filmItem, filmItem, filmItem, filmItem],
+  isLoading: false,
+  error: null
+
 }
 
 export const filmsListSlice = createSlice({
@@ -22,6 +28,18 @@ export const filmsListSlice = createSlice({
   initialState,
   reducers: {
   },
+  extraReducers: {
+    //getFilms
+    [fetchFilms.fulfilled.type]: (state, action: PayloadAction<IFilm[]>) => {
+      state.films = action.payload
+    },
+    [fetchFilms.pending.type]: (state) => {
+      state.isLoading = true
+    },
+    [fetchFilms.rejected.type]: (state, action: PayloadAction<string>) => {
+      state.error = action.payload
+    },
+  }
 })
 
 
