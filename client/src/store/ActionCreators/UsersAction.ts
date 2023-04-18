@@ -16,6 +16,7 @@ export const logInUser = createAsyncThunk(
     }
   }
 )
+
 export const fetchTickets = createAsyncThunk(
   'users/fetchTickets',
   async (_, thunkAPI) => {
@@ -25,4 +26,5 @@ export const fetchTickets = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue("Нет подключения к серверу")
     }
-  })
+  }
+)

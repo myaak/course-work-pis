@@ -16,8 +16,7 @@ const filmItem = {
 } satisfies IFilm
 
 const initialState: FilmsList = {
-  films: [filmItem, filmItem,
-    filmItem, filmItem, filmItem, filmItem, filmItem, filmItem, filmItem, filmItem, filmItem, filmItem, filmItem, filmItem],
+  films: [],
   isLoading: false,
   error: null
 
@@ -31,7 +30,8 @@ export const filmsListSlice = createSlice({
   extraReducers: {
     //getFilms
     [fetchFilms.fulfilled.type]: (state, action: PayloadAction<IFilm[]>) => {
-      state.films = action.payload
+      state.films = [...state.films, ...action.payload]
+      console.log(state.films)
     },
     [fetchFilms.pending.type]: (state) => {
       state.isLoading = true

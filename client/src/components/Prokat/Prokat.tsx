@@ -17,8 +17,9 @@ export default function Prokat() {
         {films.map((item: any, index: number) => (
           <ProkatFilmItem
             key={index}
-            filmName={item.filmName}
-            filmGenres={item.filmGenres}
+            filmName={item.title}
+            filmGenres={item.genres}
+            filmDesc={item.description}
           />
         ))
         }
@@ -26,3 +27,4 @@ export default function Prokat() {
     </div>
   )
 }
+
