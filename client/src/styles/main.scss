@@ -8,20 +8,24 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .App {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  min-height: 100%;
 }
 
 main {
+  min-height: calc(100vh - 450px - var(--header-height));
+  min-width: 100vw;
+  flex: 1 0 auto;
 }
 
 footer {
-  width: 100vw;
+  flex: 0 0 auto;
 }
 
 body,

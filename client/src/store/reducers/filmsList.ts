@@ -1,25 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from '@reduxjs/toolkit'
+import { IFilm } from "../../models/IFilm";
+import { fetchFilms } from "../ActionCreators/FilmsAction";
 
 interface FilmsList {
-  films: Array<FilmObject>
-}
-
-export interface FilmObject {
-    filmName: string
-    filmGenres: Array<string>
-    filmSeanes: Array<string>
-
+  films: IFilm[]
+  isLoading: boolean
+  error: string | null
 }
 
 const filmItem = {
-  filmName: 'Крутые крысы',
-  filmGenres: ['Ekshn', 'Fantastica'],
-  filmSeanes: ['Today 11.30']
-} satisfies FilmObject
+  title: 'Крутые крысы',
+  genres: ['Ekshn', 'Fantastica'],
+  seanses: ['Today 11.30']
+} satisfies IFilm
 
 const initialState: FilmsList = {
-  films: [filmItem]
+  films: [filmItem],
+  isLoading: false,
+  error: null
+
 }
 
 export const filmsListSlice = createSlice({
@@ -27,6 +27,18 @@ export const filmsListSlice = createSlice({
   initialState,
   reducers: {
   },
+  extraReducers: (builder) => {
+    //getFilms
+    builder.addCase(fetchFilms.fulfilled.type, (state, action: PayloadAction<IFilm[]>) => {
+      state.films = [...state.films, ...action.payload]
+    }),
+      builder.addCase(fetchFilms.pending.type, (state) => {
+        state.isLoading = true
+      }),
+      builder.addCase(fetchFilms.rejected.type, (state, action: PayloadAction<string>) => {
+        state.error = action.payload
+      })
+  }
 })
 
 
