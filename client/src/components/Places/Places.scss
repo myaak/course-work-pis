@@ -1,0 +1,62 @@
+.places__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 2023;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.places__content {
+  display: flex;
+  width: 1500px;
+  height: 80%;
+  background-color: #fff;
+}
+
+.places__room {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 2;
+}
+
+.places__room__web {
+  gap: 1rem;
+}
+
+.places__room__row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: .25rem;
+  gap: 1rem;
+}
+
+.places__room__screen {
+  text-align: center;
+  width: 300px;
+  content: '';
+  border-top: 2px solid gray;
+}
+
+.places__room__place {
+  width: 2rem;
+  height: 2rem;
+  background-color: #fb7200;
+  text-align: center;
+  padding: .25rem;
+  border-radius: 50%;
+}
+
+.places__info {
+  flex-grow: 1;
+}
+
+.disabled {
+  filter: opacity(45%);
+}

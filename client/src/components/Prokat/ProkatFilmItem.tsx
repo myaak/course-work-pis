@@ -1,4 +1,5 @@
 import GenreItem from "./GenreItem"
+import SeanseItem from "./SeanseItem"
 
 interface FilmItemProps {
   filmName: string
@@ -6,6 +7,24 @@ interface FilmItemProps {
   filmSeanses?: Array<string>
   filmDesc: string
 }
+
+const seanses = [
+  {
+  time: "12.30",
+  room: "Олег",
+  seanseType: "2D"
+  },
+  {
+    time: "14.30",
+  room: "Капр",
+  seanseType: "2D"
+  },
+  {
+  time: "17.30",
+  room: "Капр",
+  seanseType: "2D"
+  }
+]
 
 
 export default function ProkatFilmItem({ filmName, filmGenres, filmSeanses, filmDesc }: FilmItemProps) {
@@ -18,21 +37,29 @@ export default function ProkatFilmItem({ filmName, filmGenres, filmSeanses, film
             {filmName}
           </div>
           <div className="prokat-film-item__genres">
-            {filmGenres.map((item: any, index: number) => (
-              <GenreItem key={index} genreName={item.title}/>
-            ))
-            }
+            genres
           </div>
-          <div className="prokat-film-item__seanses">
-            Seanses
-          </div>
-
-          <div className="prokat-film-item__desc">
-            {filmDesc}
-          </div>
+        </div>
+        <span className="prokat-film-item__title">Сеансы</span>
+        <div className="prokat-film-item__seanses">
+            {seanses.map((item: any, index: number) => 
+            (
+              <SeanseItem key={index}
+                time={item.time}
+                room={item.room}
+                seanseType={item.seanseType}
+              />
+            ))}
         </div>
       </div>
 
     </div>
   )
 }
+
+/*
+            {filmGenres.map((item: any, index: number) => (
+              <GenreItem key={index} genreName={item.title} />
+            ))
+            }
+*/

@@ -11,7 +11,7 @@ const initialState: IUser = {
   isLoading: false,
   error: '',
   tickets: []
-} 
+}
 
 export const userSlice = createSlice({
   name: "user",
@@ -25,33 +25,33 @@ export const userSlice = createSlice({
       state.tickets = initialState.tickets
     }
   },
-  extraReducers: {
+  extraReducers: (builder) => {
     //userLogin
-    [logInUser.fulfilled.type]: (state, action: PayloadAction<IUser>) => {
+    builder.addCase(logInUser.fulfilled.type, (state, action: PayloadAction<IUser>) => {
       state.isLoading = false
       state.error = ''
       state.name = action.payload.name
       state.email = action.payload.email
-    },
-    [logInUser.pending.type]: (state) => {
-      state.isLoading = true
-    },
-    [logInUser.rejected.type]: (state, action: PayloadAction<string>) => {
-      state.error = action.payload
-    },
-    //tickets
-    [fetchTickets.fulfilled.type]: (state, action: PayloadAction<ITicket[]>) => {
-      state.isLoading = false
-      state.error = ''
-      state.tickets = action.payload
-    },
-    [fetchTickets.pending.type]: (state) => {
-      state.isLoading = true
-    },
-    [fetchTickets.rejected.type]: (state, action: PayloadAction<string>) => {
-      state.isLoading = false
-      state.error = action.payload
-    }
+    }),
+      builder.addCase(logInUser.pending.type, (state) => {
+        state.isLoading = true
+      }),
+      builder.addCase(logInUser.rejected.type, (state, action: PayloadAction<string>) => {
+        state.error = action.payload
+      }),
+      //tickets
+      builder.addCase(fetchTickets.fulfilled.type, (state, action: PayloadAction<ITicket[]>) => {
+        state.isLoading = false
+        state.error = ''
+        state.tickets = action.payload
+      }),
+      builder.addCase(fetchTickets.pending.type, (state) => {
+        state.isLoading = true
+      }),
+      builder.addCase(fetchTickets.rejected.type, (state, action: PayloadAction<string>) => {
+        state.isLoading = false
+        state.error = action.payload
+      })
   }
 })
 

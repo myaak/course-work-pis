@@ -10,13 +10,13 @@ interface FilmsList {
 }
 
 const filmItem = {
-  filmName: 'Крутые крысы',
-  filmGenres: ['Ekshn', 'Fantastica'],
-  filmSeanes: ['Today 11.30']
+  title: 'Крутые крысы',
+  genres: ['Ekshn', 'Fantastica'],
+  seanses: ['Today 11.30']
 } satisfies IFilm
 
 const initialState: FilmsList = {
-  films: [],
+  films: [filmItem],
   isLoading: false,
   error: null
 
@@ -27,18 +27,17 @@ export const filmsListSlice = createSlice({
   initialState,
   reducers: {
   },
-  extraReducers: {
+  extraReducers: (builder) => {
     //getFilms
-    [fetchFilms.fulfilled.type]: (state, action: PayloadAction<IFilm[]>) => {
+    builder.addCase(fetchFilms.fulfilled.type, (state, action: PayloadAction<IFilm[]>) => {
       state.films = [...state.films, ...action.payload]
-      console.log(state.films)
-    },
-    [fetchFilms.pending.type]: (state) => {
-      state.isLoading = true
-    },
-    [fetchFilms.rejected.type]: (state, action: PayloadAction<string>) => {
-      state.error = action.payload
-    },
+    }),
+      builder.addCase(fetchFilms.pending.type, (state) => {
+        state.isLoading = true
+      }),
+      builder.addCase(fetchFilms.rejected.type, (state, action: PayloadAction<string>) => {
+        state.error = action.payload
+      })
   }
 })
 

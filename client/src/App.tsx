@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { serverUrl } from './info'
 import { fetchFilms } from './store/ActionCreators/FilmsAction'
 import { useAppDispatch, useAppSelector } from './app/hooks'
+import Places from './components/Places/Places'
 
 function App() {
 

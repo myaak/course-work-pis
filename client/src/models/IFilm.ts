@@ -1,5 +1,5 @@
 export interface IFilm {
-  filmName: string
-  filmGenres: Array<string>
-  filmSeanes: Array<string>
+  title: string
+  genres: Array<string>
+  seanses: Array<string>
 }

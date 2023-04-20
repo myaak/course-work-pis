@@ -47,3 +47,40 @@
   border: 1px solid #777;
   border-radius: 10px;
 }
+
+.prokat-film-item__title {
+  font-size: 1.125rem;
+}
+
+.prokat-film-item__seanses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem 1.5rem;
+}
+
+.seanse-item__container {
+  width: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.seanse-item__main-description {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #fb7200;
+}
+
+.seanse-item__time {
+  width: 100%;
+  text-align: center;
+  background-color: #fb7200;
+}
+
+.seanse-item__room {
+  font-size: 0.75rem;
+}
