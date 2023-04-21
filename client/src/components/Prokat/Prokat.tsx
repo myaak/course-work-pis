@@ -1,11 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ProkatFilmItem from "./ProkatFilmItem";
 import './Prokat.scss'
-import { useAppSelector } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { fetchFilms } from '../../store/ActionCreators/FilmsAction';
 
 export default function Prokat() {
 
   const films = useAppSelector(state => state.filmsList.films)
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(fetchFilms())
+
+  }, [])
 
   return (
     <div className="prokat__container">
@@ -17,6 +24,7 @@ export default function Prokat() {
         {films.map((item: any, index: number) => (
           <ProkatFilmItem
             key={index}
+            coverId={item.cover.id}
             filmName={item.title}
             filmGenres={item.genres}
             filmDesc={item.description}

@@ -8,8 +8,7 @@ import Places from './components/Places/Places'
 
 function App() {
 
-  const films = useAppSelector(state => state.filmsList.films)
-
+  const openedSeanseModal = useAppSelector(state => state.seanseModal.opened)
   const dispatch = useAppDispatch()
 
   const postFilm = async () => {
@@ -32,12 +31,6 @@ function App() {
     })
   }
 
-  const getFilms = async () => {
-    dispatch(fetchFilms())
-
-    console.log(films)
-  }
-
   return (
     <BrowserRouter>
       <div className="App">
@@ -45,12 +38,11 @@ function App() {
           <Header />
         </header>
         <main>
+          {openedSeanseModal && <Places />}
           <AppRouter />
         </main>
         <footer>
           <Footer />
-          <button onClick={postFilm}>postFilmTest</button>
-          <button onClick={getFilms}>getFilms</button>
         </footer>
       </div>
     </BrowserRouter>
