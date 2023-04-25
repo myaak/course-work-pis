@@ -17,12 +17,15 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    logOut: (state) => {
+    logOut(state) {
       state.name = initialState.name
       state.email = initialState.email
       state.isLoading = false
       state.error = ''
       state.tickets = initialState.tickets
+    },
+    addTicket(state, action: PayloadAction<ITicket>) {
+      state.tickets = [...state.tickets, action.payload]
     }
   },
   extraReducers: (builder) => {
@@ -55,7 +58,7 @@ export const userSlice = createSlice({
   }
 })
 
-
+export const { logOut, addTicket } = userSlice.actions
 export default userSlice.reducer
 
 

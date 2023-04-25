@@ -10,10 +10,16 @@ interface FilmsList {
 }
 
 const initialState: FilmsList = {
-  films: [],
+  films: [
+    {
+      cover: "",
+      title: "NewFilm",
+      genres: ["Фантастика"],
+      seanses: ["10:30"]
+    }
+  ],
   isLoading: false,
   error: null
-
 }
 
 export const filmsListSlice = createSlice({

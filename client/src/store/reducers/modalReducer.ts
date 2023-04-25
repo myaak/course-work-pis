@@ -13,5 +13,5 @@ export const seanseModal = createSlice({
   }
 })
 
-
+export const { changeModalState } = seanseModal.actions
 export default seanseModal.reducer

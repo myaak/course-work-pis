@@ -16,8 +16,7 @@ function App() {
           <Header />
         </header>
         <main>
-          //{openedSeanseModal && <Places />}
-          <Places />
+          {openedSeanseModal && <Places />}
           <AppRouter />
         </main>
         <footer>

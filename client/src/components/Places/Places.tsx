@@ -2,22 +2,42 @@ import './Places.scss'
 import PlacesRow from './PlacesRow'
 import { places } from './places'
 import { generatePlaces } from '../../generatePlaces'
-import { useAppSelector } from '../../app/hooks'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { useEffect } from 'react'
 import axios from 'axios'
 import { serverUrl } from '../../info'
+import { IPlace } from '../../models/IPlace'
+import { addTicket } from '../../store/reducers/userReducer'
+import { changeModalState } from '../../store/reducers/modalReducer'
 
 
 export default function Places() {
 
   //const currentSession = useAppSelector(state => state.currentSession)
+  const dispatch = useAppDispatch()
 
   const modifiedPlaces = generatePlaces(places)
+  const selectedPlaces = useAppSelector(state => state.placesSlice.currentPlaces)
 
 
   const getCurrentSession = async () => {
     //const response = await axios.get(`${serverUrl}/get/session/${currenSession.id}`)
     //dispatch(updateCurrentSession(response.data))
+  }
+
+  const addNewTicket = () => {
+  //id film time place price 
+    
+    const newTicket = {
+      id: 1,
+      film: "newFilm",
+      time: "10.30",
+      place: selectedPlaces,
+    }
+
+    dispatch(addTicket(newTicket))
+    dispatch(changeModalState(false))
+
   }
 
 
@@ -46,6 +66,23 @@ export default function Places() {
           <div className="places__info__session-info">
             currentSession.time
           </div>
+          <div>
+            <div>Выбранные места</div>
+            <div style={{
+              display: 'flex',
+              gap: '1rem'
+            }}>
+              {selectedPlaces.length > 0 &&
+                selectedPlaces.map((item: IPlace, index: number) => (
+                  <span key={index}>{item.number}</span>
+                ))
+              }
+            </div>
+          </div>
+          {
+            selectedPlaces.length > 0 &&
+            <button onClick={addNewTicket}>Купить</button>
+          }
         </div>
       </div>
     </div>

@@ -21,7 +21,7 @@ export const fetchTickets = createAsyncThunk(
   'users/fetchTickets',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get<ITicket[]>(`${serverUrl}/getTickets`)
+      const response = await axios.get<ITicket[]>(`${serverUrl}/get/tickets`)
       return response.data
     } catch (error) {
       return thunkAPI.rejectWithValue("Нет подключения к серверу")
