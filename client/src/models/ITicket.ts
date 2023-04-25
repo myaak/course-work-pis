@@ -1,7 +1,9 @@
+import { IPlace } from "./IPlace"
+
 export interface ITicket {
   id?: number
   film?: string
   time?: string
-  place?: number
+  place?: IPlace[]
   price?: number
 }

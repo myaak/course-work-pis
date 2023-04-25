@@ -1,11 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 import filmsListSlice from './reducers/filmsList'
+import seanseModal from './reducers/modalReducer'
+import placesSlice from './reducers/placesReducer'
 import userReducer from './reducers/userReducer'
 
 export const store = configureStore({
   reducer: {
     filmsList: filmsListSlice,
-    user: userReducer
+    user: userReducer,
+    seanseModal: seanseModal,
+    placesSlice: placesSlice
   }
 })
 

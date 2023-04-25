@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 5rem;
   height: 100%;
   flex-grow: 2;
   padding: 0 2rem;
@@ -52,6 +52,11 @@
   font-size: 1.125rem;
 }
 
+.prokat-film-item__content img {
+  width: 240px;
+  height: 340px;
+}
+
 .prokat-film-item__seanses {
   display: flex;
   flex-wrap: wrap;
@@ -64,6 +69,10 @@
   flex-direction: column;
   align-items: center;
 
+}
+
+.seanse-item__container:hover {
+  cursor: pointer;
 }
 
 .seanse-item__main-description {
@@ -84,3 +93,4 @@
 .seanse-item__room {
   font-size: 0.75rem;
 }
+

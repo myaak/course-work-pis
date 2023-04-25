@@ -1,42 +1,49 @@
 import './Places.scss'
 import PlacesRow from './PlacesRow'
-import {places} from './places'
-
+import { places } from './places'
+import { generatePlaces } from '../../generatePlaces'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
+import { useEffect } from 'react'
+import axios from 'axios'
+import { serverUrl } from '../../info'
+import { IPlace } from '../../models/IPlace'
+import { addTicket } from '../../store/reducers/userReducer'
+import { changeModalState } from '../../store/reducers/modalReducer'
 
 
 export default function Places() {
 
-
-  const generatePlaces = (places: any) => {
-    console.log(places.length)
-    let modifiedPlaces:any = []
-    let count = 0
-    let rowPlaces: any = []
-    for (let i = 0; i < places.length + 1; ++i) {
-
-      if(count === 5) {
-
-        const placesObject = {
-          row: modifiedPlaces.length === 0 ? 1 : modifiedPlaces[modifiedPlaces.length - 1].row + 1,
-          rowPlaces: rowPlaces 
-        }
-
-        modifiedPlaces.push(placesObject)
-        count = 0
-        rowPlaces = []
-
-      }
-
-      rowPlaces.push(places[i])
-
-      count++
-    }
-
-    return modifiedPlaces
-  }
+  //const currentSession = useAppSelector(state => state.currentSession)
+  const dispatch = useAppDispatch()
 
   const modifiedPlaces = generatePlaces(places)
-  console.log(modifiedPlaces)
+  const selectedPlaces = useAppSelector(state => state.placesSlice.currentPlaces)
+
+
+  const getCurrentSession = async () => {
+    //const response = await axios.get(`${serverUrl}/get/session/${currenSession.id}`)
+    //dispatch(updateCurrentSession(response.data))
+  }
+
+  const addNewTicket = () => {
+  //id film time place price 
+    
+    const newTicket = {
+      id: 1,
+      film: "newFilm",
+      time: "10.30",
+      place: selectedPlaces,
+    }
+
+    dispatch(addTicket(newTicket))
+    dispatch(changeModalState(false))
+
+  }
+
+
+  useEffect(() => {
+    getCurrentSession()
+  }, [])
 
   return (
     <div className="places__container">
@@ -46,13 +53,37 @@ export default function Places() {
             Экран
           </div>
           <div className="places__room__web">
-            {modifiedPlaces.map((item: any, index:number) => (
-              <PlacesRow key={index} places={item.rowPlaces}/>
+            {modifiedPlaces.map((item: any, index: number) => (
+              <PlacesRow key={index} places={item.rowPlaces} />
             ))
             }
           </div>
         </div>
-        <div className="places__info"></div>
+        <div className="places__info">
+          <div className="places__info__title">
+            currentSession.title
+          </div>
+          <div className="places__info__session-info">
+            currentSession.time
+          </div>
+          <div>
+            <div>Выбранные места</div>
+            <div style={{
+              display: 'flex',
+              gap: '1rem'
+            }}>
+              {selectedPlaces.length > 0 &&
+                selectedPlaces.map((item: IPlace, index: number) => (
+                  <span key={index}>{item.number}</span>
+                ))
+              }
+            </div>
+          </div>
+          {
+            selectedPlaces.length > 0 &&
+            <button onClick={addNewTicket}>Купить</button>
+          }
+        </div>
       </div>
     </div>
   )

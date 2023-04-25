@@ -9,7 +9,6 @@ export const fetchFilms = createAsyncThunk(
   async (_, thinkAPI) => {
     try {
       const response = await axios.get<IFilm[]>(`${serverUrl}/get/movies`)
-      console.log(response.data)
       return response.data
     } catch (error) {
       return thinkAPI.rejectWithValue("Нет подключения к серверу")
